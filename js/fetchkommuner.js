@@ -40,16 +40,40 @@ function showKommuneMap() {
   }
 }
 
+function fillKommuner() {
+  //kommuneMap.forEach()
+  for (const komKey of kommuneMap.keys()) {
+    const el = document.createElement("option");
+    el.textContent = komKey;
+    el.value = kommuneMap.get(komKey); //important value follows the key.
+    ddKommune.appendChild(el);
+  }
+}
+
+
+function inputChanged(key) {
+  const komName = inp1.value;
+  out(komName);
+}
+
 //callGetAllKommuner();
 showAllKommuner();
 showKommuneMap();
 
 const pbGetKommuner = document.getElementById('pbGetKommune');
 const pbShowKommuneMap = document.getElementById('pbShowKommuneMap');
+const pbFillDropDown = document.getElementById('pbFillDropDown');
+const ddKommune = document.getElementById('ddKommuner');
 
-out("vi er færdige her");
+//dette bruges til at danne a tags
+const inp1 = document.getElementById('inp1');
+const divTag = document.getElementById('divKom');
 
+//add event listeners
 pbGetKommuner.addEventListener('click', showAllKommuner);
 pbShowKommuneMap.addEventListener('click', showKommuneMap);
+pbFillDropDown.addEventListener('click', fillKommuner);
+inp1.addEventListener('change', inputChanged);
 
+out("vi er færdige her");
 
