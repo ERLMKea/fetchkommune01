@@ -54,6 +54,17 @@ function fillKommuner() {
 function inputChanged(key) {
   const komName = inp1.value;
   out(komName);
+  if (komName) {
+    const komObj = kommuneMap.get(komName);
+    if (komObj) {
+      let aTag = document.createElement("a");
+      aTag.setAttribute('href', komObj.href);
+      aTag.innerText = komName;
+      divTag.appendChild(aTag);
+      const brTag = document.createElement('br');
+      divTag.appendChild(brTag);
+    }
+  }
 }
 
 //callGetAllKommuner();
