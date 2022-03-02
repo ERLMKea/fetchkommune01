@@ -21,16 +21,18 @@ const postKommuneUrl = "http://localhost:8080/county";
 
 function postAllKommuner(bth) {
   out("post alle kommuner");
-  county = JSON.stringify(county);
-  out(county);
   for (const komKey of kommuneMap.keys()) {
-    out(kommuneMap.get(komKey));
-
-    postKommuneRequest.body = region;
+    let kom1 = kommuneMap.get(komKey);
+    county.countyCode = kom1.kode;
+    county.name = kom1.navn;
+    county.href = kom1.href;
+    body = JSON.stringify(county);
+    out(body);
+    postKommuneRequest.body = body;
     fetch(postKommuneUrl, postKommuneRequest).catch((error) => out(error));
   }
-
 }
+
 
 pbPostKommuner.addEventListener('click',postAllKommuner);
 
