@@ -26,6 +26,9 @@ function postAllKommuner(bth) {
     county.countyCode = kom1.kode;
     county.name = kom1.navn;
     county.href = kom1.href;
+    county.region = {
+      "regionCode": kom1.region.kode
+    };
     body = JSON.stringify(county);
     out(body);
     postKommuneRequest.body = body;
