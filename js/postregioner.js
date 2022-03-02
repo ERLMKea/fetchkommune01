@@ -35,8 +35,8 @@ function postAllRegioner(btn){
   fetch(getRegionerAPIUrl, getRegionerAPIRequest)
     .then(response => response.json())
     .then(data => data.forEach(obj => {
-      region.name = obj.navn;
       region.regionCode = obj.kode;
+      region.name = obj.navn;
       region.href = obj.href;
       body = JSON.stringify(region);
       postRegionRequest.body = body;
