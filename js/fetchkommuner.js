@@ -29,7 +29,7 @@ async function showAllKommuner() {
   const kommuneList = await getAllKommuner();
   out(kommuneList);
   kommuneList.forEach((kommune, index) => {
-    out(kommune.navn + "ix=" + index);
+    //out(kommune.navn + "ix=" + index);
     kommuneMap.set(kommune.navn, kommune);
   })
 }
