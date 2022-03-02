@@ -21,9 +21,9 @@ const postKommuneUrl = "http://localhost:8080/county";
 
 function postAllKommuner(bth) {
   out("post alle kommuner");
-  county = JSON.stringify(county);
-  out(county);
-  postKommuneRequest.body = county;
+  body = JSON.stringify(county);
+  out(body);
+  postKommuneRequest.body = body;
   fetch(postKommuneUrl, postKommuneRequest).catch((error) => out(error));
 
 }
