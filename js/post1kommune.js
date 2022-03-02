@@ -23,17 +23,10 @@ function postAllKommuner(bth) {
   out("post alle kommuner");
   county = JSON.stringify(county);
   out(county);
-  for (const komKey of kommuneMap.keys()) {
-    out(kommuneMap.get(komKey));
-
-    postKommuneRequest.body = region;
-    fetch(postKommuneUrl, postKommuneRequest).catch((error) => out(error));
-  }
+  postKommuneRequest.body = county;
+  fetch(postKommuneUrl, postKommuneRequest).catch((error) => out(error));
 
 }
 
 pbPostKommuner.addEventListener('click',postAllKommuner);
-
-
-
 
